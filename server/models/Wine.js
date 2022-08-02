@@ -14,7 +14,7 @@ const wineSchema = new Schema({
      
     },
    year: {
-      type: number,
+      type: Number,
       required: true,
       min: 1900,
       max: 2030
@@ -24,7 +24,7 @@ const wineSchema = new Schema({
     type: String,
       },
      price: {
-        type: number,
+        type: Number,
         required: true,
      },
      type: {
@@ -32,11 +32,10 @@ const wineSchema = new Schema({
          enum: ['red', 'white', 'sparkling', 'rose', 'dessert'],
          required: true,
      },
-      blurb:
-      {
+      blurb:{
     type: String,
     required: true,
-}
+    }
 
   });
 
