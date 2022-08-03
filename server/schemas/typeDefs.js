@@ -37,8 +37,7 @@ const typeDefs = gql`
 
   type Query {
     me: User
-    wines: [Wine]
-    getWine(type: String, price: Int): [Wine]
+    getWine(type: String, minPrice: Int, maxPrice: Int): [Wine]
     getOneWine(wineID: ID!): Wine 
 
   }
