@@ -16,30 +16,30 @@ const resolvers = {
     },
 
         // finding an array of wines based off the paramaters the user picks 
-        getWine: async (parent, { type, minPrice, maxPrice }) => {
-          const params = type ?  type  : "";
-          let priceQuery = {};
-          if (minPrice){
-            priceQuery = { ...priceQuery, $gte: minPrice };
-          }
-           if (maxPrice) {
-           priceQuery = { ...priceQuery, $lte: maxPrice };
-          }
-          if (!type && minPrice){
-            return Wine.find({
-              price: { $gte:minPrice, $lte:maxPrice }
-            });
-          }
-          else if(!minPrice && type){
-            return Wine.find({ type });
-          }
-          else {
-            return Wine.find({
-              type: params, 
-              $or: [ {price: { $gte:minPrice, $lte:maxPrice }} ]
-            })
-          }
-        },
+    getWine: async (parent, { type, minPrice, maxPrice }) => {
+      const params = type ?  type  : "";
+      let priceQuery = {};
+      if (minPrice){
+        priceQuery = { ...priceQuery, $gte: minPrice };
+      }
+      if (maxPrice) {
+        priceQuery = { ...priceQuery, $lte: maxPrice };
+      }
+      if (!type && minPrice){
+        return Wine.find({
+        price: { $gte:minPrice, $lte:maxPrice }
+        });
+      }
+      else if(!minPrice && type){
+        return Wine.find({ type });
+      }
+      else {
+        return Wine.find({
+          type: params, 
+          $or: [ {price: { $gte:minPrice, $lte:maxPrice }} ]
+        })
+      }
+      },
 
       wines: async (parent, args) => {
           return Wine.find()
@@ -74,7 +74,10 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },  
-  //  createWine: 
+    createWine: async (parent, { name, vineyard, year, varietal, price, type, blurb }) => {
+      const wine = await Wine.create({ name, vineyard, year, varietal, price, type, blurb });
+      return { wine }; 
+    }
   },
 };
 
