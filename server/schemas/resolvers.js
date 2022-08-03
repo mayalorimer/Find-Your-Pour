@@ -15,10 +15,33 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
 
+
     wines: async (parent, args) => {
         return Wine.find()
 
-    }  
+    }, 
+    getWine: async (parent, { type, price }) => {
+    //  const params = type ? { type } ? { price } : {};
+      let params;
+      if (type && price){
+        params = { type, price };
+      }
+      else if (type) {
+        params = { type };
+      }
+      else if (price){
+        params = { price };
+      }
+      else {
+        params = {}; 
+      }
+      return Wine.find(params);
+    },
+
+    getOneWine: async (parent, { wineID }) => {
+      return Wine.findOne({ _id: wineID }); 
+    },
+
   },
 
   Mutation: {
@@ -43,8 +66,8 @@ const resolvers = {
 
       const token = signToken(user);
       return { token, user };
-    },
-//ADD WINE MUTATIONS HERE
+    }, 
+  //  createWine: 
   },
 };
 
