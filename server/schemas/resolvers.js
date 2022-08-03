@@ -15,35 +15,36 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
 
-    // finding an array of wines based off the paramaters the user picks 
-    getWine: async (parent, { type, minPrice, maxPrice }) => {
-      const params = type ?  type  : "";
-      let priceQuery = {};
-      if (minPrice){
-        priceQuery = { ...priceQuery, $gte: minPrice };
-      }
-       if (maxPrice) {
-       priceQuery = { ...priceQuery, $lte: maxPrice };
-      }
-      if (!type && minPrice){
-        return Wine.find({
-          price: { $gte:minPrice, $lte:maxPrice }
-        });
-      }
-      else if(!minPrice && type){
-        return Wine.find({ type });
-      }
-      else {
-        return Wine.find({
-          type: params, 
-          $or: [ {price: { $gte:minPrice, $lte:maxPrice }} ]
-        })
-      }
-    },
+        // finding an array of wines based off the paramaters the user picks 
+        getWine: async (parent, { type, minPrice, maxPrice }) => {
+          const params = type ?  type  : "";
+          let priceQuery = {};
+          if (minPrice){
+            priceQuery = { ...priceQuery, $gte: minPrice };
+          }
+           if (maxPrice) {
+           priceQuery = { ...priceQuery, $lte: maxPrice };
+          }
+          if (!type && minPrice){
+            return Wine.find({
+              price: { $gte:minPrice, $lte:maxPrice }
+            });
+          }
+          else if(!minPrice && type){
+            return Wine.find({ type });
+          }
+          else {
+            return Wine.find({
+              type: params, 
+              $or: [ {price: { $gte:minPrice, $lte:maxPrice }} ]
+            })
+          }
+        },
 
     getOneWine: async (parent, { wineID }) => {
       return Wine.findOne({ _id: wineID }); 
     },
+
   },
 
   Mutation: {
@@ -53,7 +54,7 @@ const resolvers = {
 
       return { token, user };
     },
-/*     login: async (parent, { email, password }) => {
+     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
       if (!user) {
@@ -68,7 +69,7 @@ const resolvers = {
 
       const token = signToken(user);
       return { token, user };
-    },  */
+    },  
   //  createWine: 
   },
 };
