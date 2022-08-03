@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 // import schema from Book.js
-const wineSchema = require('./Wine');
+const Wine = require('./Wine');
 
 const userSchema = new Schema(
   {
@@ -27,7 +27,7 @@ const userSchema = new Schema(
         unique: true,
     },
     // set wineSchema to be an array of data that adheres to the wineSchema
-    wines: [wineSchema],
+   // wines: [Wine],
   },
   // set this to use virtual below
   {
