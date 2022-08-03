@@ -25,7 +25,7 @@ const userSchema = new Schema(
         type: String,
         required: true,
         unique: true,
-    }
+    },
     // set wineSchema to be an array of data that adheres to the wineSchema
     wines: [wineSchema],
   },
