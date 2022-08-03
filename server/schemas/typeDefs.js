@@ -39,7 +39,7 @@ const typeDefs = gql`
     me: User
     getWine(type: String, minPrice: Int, maxPrice: Int): [Wine]
     getOneWine(wineID: ID!): Wine 
-
+    wines: [Wine]
   }
 
   type Mutation {
