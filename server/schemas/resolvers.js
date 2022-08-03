@@ -19,11 +19,7 @@ const resolvers = {
     wines: async (parent, args) => {
         return Wine.find()
 
-<<<<<<< HEAD
     }, 
-=======
-    } 
->>>>>>> be195115d4e0df62bfec42796a7156ffd4ad49d5
     getWine: async (parent, { type, price }) => {
     //  const params = type ? { type } ? { price } : {};
       let params;
