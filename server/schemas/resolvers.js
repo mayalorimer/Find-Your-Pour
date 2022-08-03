@@ -1,6 +1,6 @@
 //resolvers.js
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Wine } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -15,10 +15,10 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
 
-    // wines: async (parent, args) => {
-    //     return {
+    wines: async (parent, args) => {
+        return Wine.find()
 
-    //     }
+    }  
   },
 
   Mutation: {

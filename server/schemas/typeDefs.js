@@ -9,6 +9,17 @@ const typeDefs = gql`
     wines: [Wine]
   }
 
+  type Wine {
+    _id: ID!
+    name: String
+    vineyard: String
+    year: Int
+    varietal: String
+    price: Int
+    type: String
+    blurb: String
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -16,11 +27,12 @@ const typeDefs = gql`
 
   type Query {
     me: User
-    wines: Wine
+    wines: [Wine]
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
   }
 `;
 module.exports = typeDefs;
