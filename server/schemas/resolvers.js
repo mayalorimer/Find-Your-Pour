@@ -14,6 +14,12 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+
+
+    wines: async (parent, args) => {
+        return Wine.find()
+
+    } 
     getWine: async (parent, { type, price }) => {
     //  const params = type ? { type } ? { price } : {};
       let params;
@@ -35,6 +41,7 @@ const resolvers = {
     getOneWine: async (parent, { wineID }) => {
       return Wine.findOne({ _id: wineID }); 
     },
+
   },
 
   Mutation: {
