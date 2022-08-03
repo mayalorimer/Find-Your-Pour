@@ -14,6 +14,11 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+
+    // wines: async (parent, args) => {
+    //     return {
+
+    //     }
   },
 
   Mutation: {
