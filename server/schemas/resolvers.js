@@ -41,6 +41,10 @@ const resolvers = {
           }
         },
 
+      wines: async (parent, args) => {
+          return Wine.find()
+      }, 
+        
     getOneWine: async (parent, { wineID }) => {
       return Wine.findOne({ _id: wineID }); 
     },
