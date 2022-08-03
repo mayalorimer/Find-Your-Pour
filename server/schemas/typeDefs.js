@@ -12,9 +12,9 @@ const typeDefs = gql`
     _id: ID!
     name: String!
     vineyard: String!
-    year: Number!
+    year: Int!
     varietal: String
-    price: Number!
+    price: Int!
     type: String!
     blurb: String
   }
@@ -26,14 +26,14 @@ const typeDefs = gql`
 
   type Query {
     me: User
-    getWine(type: String!): [Wine]
+    getWine(type: String, price: Int): [Wine]
     getOneWine(wineID: ID!): Wine 
 
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
-    createWine(name: String!, vineyard: String!, year: Number!, varietal: String, price: Number!, type: String!, blurb: String): Auth
+    createWine(name: String!, vineyard: String!, year: Int!, varietal: String, price: Int!, type: String!, blurb: String): Auth
   }
 `;
 

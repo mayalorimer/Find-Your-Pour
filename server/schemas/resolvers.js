@@ -1,6 +1,6 @@
 //resolvers.js
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Wine } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -13,6 +13,27 @@ const resolvers = {
       }
 
       throw new AuthenticationError('Not logged in');
+    },
+    getWine: async (parent, { type, price }) => {
+    //  const params = type ? { type } ? { price } : {};
+      let params;
+      if (type && price){
+        params = { type, price };
+      }
+      else if (type) {
+        params = { type };
+      }
+      else if (price){
+        params = { price };
+      }
+      else {
+        params = {}; 
+      }
+      return Wine.find(params);
+    },
+
+    getOneWine: async (parent, { wineID }) => {
+      return Wine.findOne({ _id: wineID }); 
     },
   },
 
@@ -38,8 +59,8 @@ const resolvers = {
 
       const token = signToken(user);
       return { token, user };
-    },
-//ADD WINE MUTATIONS HERE
+    }, 
+  //  createWine: 
   },
 };
 
