@@ -14,22 +14,21 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    getWine: async (parent, { type, price }) => {
+    getWine: async (parent, { type, minPrice, maxPrice}) => {
     //  const params = type ? { type } ? { price } : {};
-      let params;
-      if (type && price){
-        params = { type, price };
+      let typeQuery = {};
+      let priceQuery = {}
+      if (minPrice){
+        priceQuery = { ...priceQuery, $gte: minPrice };
       }
-      else if (type) {
-        params = { type };
+       if (maxPrice) {
+       priceQuery = { ...priceQuery, $lte: maxPrice };
       }
-      else if (price){
-        params = { price };
+       if (type){
+       typeQuery = { ...typeQuery, type};
       }
-      else {
-        params = {}; 
-      }
-      return Wine.find(params);
+  
+      return Wine.find({price: {...priceQuery}}, typeQuery);
     },
 
     getOneWine: async (parent, { wineID }) => {
@@ -44,22 +43,22 @@ const resolvers = {
 
       return { token, user };
     },
-    login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
+    // login: async (parent, { email, password }) => {
+    //   const user = await User.findOne({ email });
 
-      if (!user) {
-        throw new AuthenticationError('Incorrect credentials');
-      }
+    //   if (!user) {
+    //     throw new AuthenticationError('Incorrect credentials');
+    //   }
 
-      const correctPw = await user.isCorrectPassword(password);
+    //   const correctPw = await user.isCorrectPassword(password);
 
-      if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
-      }
+    //   if (!correctPw) {
+    //     throw new AuthenticationError('Incorrect credentials');
+    //   }
 
-      const token = signToken(user);
-      return { token, user };
-    }, 
+    //   const token = signToken(user);
+    //   return { token, user };
+    // }, 
   //  createWine: 
   },
 };
