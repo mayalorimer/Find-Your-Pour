@@ -13,6 +13,8 @@ import {
   Button,
 } from 'react-bootstrap';
 
+
+
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_ME, QUERY_WINES } from '../utils/queries';
 
@@ -27,10 +29,10 @@ const Home = () => {
   return (
   <div> 
     <h3>Find-Your-Pour Homepage Wine List:</h3>
-    <div>
+    <div class="outline">
     {wines.map((wine) => {
       return (
-        <div>
+        <div class="outline">
       
       <p key={wine._id}> 
 
