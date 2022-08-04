@@ -26,10 +26,20 @@ const Home = () => {
 
   return (
   <div> 
-    Wines:
+    <h3>Find-Your-Pour Homepage Wine List:</h3>
     <div>
     {wines.map((wine) => {
-      return (<p key={wine._id}>{wine.name} - {wine.year}</p>)
+      return (
+        <div>
+      
+      <p key={wine._id}> 
+
+      <p>Vineyard: {wine.vineyard}</p>
+      {wine.name} - {wine.year} 
+
+      </p>
+        </div>
+      )
     })}
     </div>
   </div>
