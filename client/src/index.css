@@ -24,11 +24,12 @@ code {
 
 .headline {
   font-size: larger;
+  font-weight: 700;
 }
 
 .outline {
   border: solid;
   color: rgb(5, 5, 50);
   border-radius: 4px;
-  margin: 5px;
+  margin: 8px;
 }

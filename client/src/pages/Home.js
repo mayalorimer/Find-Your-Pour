@@ -27,26 +27,35 @@ const Home = () => {
   console.log(wines);
 
   return (
-  <div> 
-    <h3>Find-Your-Pour Homepage Wine List:</h3>
     <div>
-    {wines.map((wine) => {
-      return (
-        <div class="outline winecard">
-      
-      <p key={wine._id}> 
+      <h3>Find-Your-Pour Homepage Wine List:</h3>
+      <div>
+        {wines.map((wine) => {
+          return (
+            <div class="outline winecard">
 
-      <p class="headline">{wine.vineyard}</p>
-      {wine.name} - {wine.year} 
+              <p key={wine._id}>
 
-      </p>
-        </div>
-      )
-    })}
+                <p class="headline">{wine.vineyard}</p>
+                {wine.name}
+                <br></br><br></br>
+                - {wine.year} -
+                <br></br><br></br>
+                {wine.varietal}
+                <br></br><br></br>
+                ${wine.price}
+                <br></br><br></br>
+                <p class="outline">This is a {wine.type} wine.
+                  {wine.blurb}</p>
+
+              </p>
+            </div>
+          )
+        })}
+      </div>
     </div>
-  </div>
   )
-  
+
 }
 
 
@@ -68,7 +77,7 @@ const Home = () => {
 //             <div>Loading...</div>
 //           ) : (
 //             <div>
-              
+
 //             </div>
 //           )}
 //         </div>
