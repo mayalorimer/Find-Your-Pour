@@ -26,7 +26,12 @@ const Home = () => {
 
   return (
   <div> 
-    
+    Wines:
+    <div>
+    {wines.map((wine) => {
+      return (<p key={wine._id}>{wine.name}</p>)
+    })}
+    </div>
   </div>
   )
   
