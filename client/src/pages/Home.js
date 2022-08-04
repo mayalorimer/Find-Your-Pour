@@ -29,7 +29,7 @@ const Home = () => {
     Wines:
     <div>
     {wines.map((wine) => {
-      return (<p key={wine._id}>{wine.name}</p>)
+      return (<p key={wine._id}>{wine.name} - {wine.year}</p>)
     })}
     </div>
   </div>
