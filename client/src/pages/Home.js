@@ -39,11 +39,11 @@ const Home = () => {
                 <p class="headline">{wine.vineyard}</p>
                 {wine.name}
                 <br></br><br></br>
-                - {wine.year} -
+                • {wine.year} •
                 <br></br><br></br>
                 {wine.varietal}
                 <br></br><br></br>
-                <p class="outline">This is a {wine.type} wine.
+                <p class="outline">{wine.name} is a {wine.type} wine...
                 <br></br>
                  {wine.blurb}</p>
                 <br></br>
