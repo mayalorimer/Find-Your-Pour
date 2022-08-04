@@ -14,22 +14,6 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    getWine: async (parent, { type, minPrice, maxPrice}) => {
-    //  const params = type ? { type } ? { price } : {};
-      let typeQuery = {};
-      let priceQuery = {}
-      if (minPrice){
-        priceQuery = { ...priceQuery, $gte: minPrice };
-      }
-       if (maxPrice) {
-       priceQuery = { ...priceQuery, $lte: maxPrice };
-      }
-       if (type){
-       typeQuery = { ...typeQuery, type};
-      }
-  
-      return Wine.find({price: {...priceQuery}}, typeQuery);
-    },
 
         // finding an array of wines based off the paramaters the user picks 
     getWine: async (parent, { type, minPrice, maxPrice }) => {
@@ -89,15 +73,9 @@ const resolvers = {
     //   if (!correctPw) {
     //     throw new AuthenticationError('Incorrect credentials');
     //   }
-
-<<<<<<< HEAD
     //   const token = signToken(user);
     //   return { token, user };
     // }, 
-  //  createWine: 
-=======
-      const token = signToken(user);
-      return { token, user };
     },  
     createWine: async (parent, { name, vineyard, year, varietal, price, type, blurb }, context) => {
       // creates the new wine in the database
