@@ -13,6 +13,8 @@ import {
   Button,
 } from 'react-bootstrap';
 
+
+
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_ME, QUERY_WINES } from '../utils/queries';
 
@@ -25,16 +27,35 @@ const Home = () => {
   console.log(wines);
 
   return (
-  <div> 
-    Wines:
     <div>
-    {wines.map((wine) => {
-      return (<p key={wine._id}>{wine.name} - {wine.year}</p>)
-    })}
+      <h3>Find-Your-Pour Homepage Wine List: - Navbar will go here -</h3>
+      <div>
+        {wines.map((wine) => {
+          return (
+            <div class="outline winecard">
+
+              <p key={wine._id}>
+
+                <p class="headline">{wine.vineyard}</p>
+                {wine.name}
+                <br></br><br></br>
+                • {wine.year} •
+                <br></br><br></br>
+                {wine.varietal}
+                <br></br><br></br>
+                <p class="outline">{wine.name} is a {wine.type} wine...
+                <br></br>
+                 {wine.blurb}</p>
+                <br></br>
+                ${wine.price}
+              </p>
+            </div>
+          )
+        })}
+      </div>
     </div>
-  </div>
   )
-  
+
 }
 
 
@@ -56,7 +77,7 @@ const Home = () => {
 //             <div>Loading...</div>
 //           ) : (
 //             <div>
-              
+
 //             </div>
 //           )}
 //         </div>
