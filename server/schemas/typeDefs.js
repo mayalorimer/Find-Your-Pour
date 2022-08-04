@@ -39,13 +39,13 @@ const typeDefs = gql`
     me: User
     getWine(type: String, minPrice: Int, maxPrice: Int): [Wine]
     getOneWine(wineID: ID!): Wine 
-
+    wines: [Wine]
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    createWine(name: String!, vineyard: String!, year: Int!, varietal: String, price: Int!, type: String!, blurb: String): Auth
+    createWine(name: String!, vineyard: String!, year: Int!, varietal: String, price: Int!, type: String!, blurb: String): Wine
   }
 `;
 
