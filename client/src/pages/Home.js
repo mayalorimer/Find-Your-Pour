@@ -20,7 +20,16 @@ import Auth from '../utils/auth';
 
 
 const Home = () => {
-  return (<div> HOMEPAGE </div>)
+  const { loading, data } = useQuery(QUERY_WINES);
+  const wines = data?.wines || [];
+  console.log(wines);
+
+  return (
+  <div> 
+    
+  </div>
+  )
+  
 }
 
 
