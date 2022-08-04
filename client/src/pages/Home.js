@@ -29,14 +29,14 @@ const Home = () => {
   return (
   <div> 
     <h3>Find-Your-Pour Homepage Wine List:</h3>
-    <div class="outline">
+    <div>
     {wines.map((wine) => {
       return (
-        <div class="outline">
+        <div class="outline winecard">
       
       <p key={wine._id}> 
 
-      <p>Vineyard: {wine.vineyard}</p>
+      <p class="headline">{wine.vineyard}</p>
       {wine.name} - {wine.year} 
 
       </p>
