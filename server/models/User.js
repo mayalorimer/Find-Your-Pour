@@ -27,7 +27,12 @@ const userSchema = new Schema(
         unique: true,
     },
     // set wineSchema to be an array of data that adheres to the wineSchema
-   // wines: [Wine],
+    wines: [ 
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Wine',
+      }
+    ],
   },
   // set this to use virtual below
   {
