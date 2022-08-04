@@ -28,7 +28,7 @@ const Home = () => {
 
   return (
     <div>
-      <h3>Find-Your-Pour Homepage Wine List:</h3>
+      <h3>Find-Your-Pour Homepage Wine List: - Navbar will go here -</h3>
       <div>
         {wines.map((wine) => {
           return (

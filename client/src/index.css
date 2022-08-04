@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: antiquewhite;
+  background-image: linear-gradient(rgb(240, 240, 200), rgb(164, 49, 49));
 }
 
 code {
@@ -20,6 +20,7 @@ code {
   text-align: center;
   max-width: 400px;
   max-height: 360px;
+  background-color: antiquewhite;
 }
 
 .headline {
