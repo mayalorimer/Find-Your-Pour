@@ -10,6 +10,8 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
+import Home from './pages/Home';
+
 //import SearchBooks from './pages/SearchBooks';
 //import SavedBooks from './pages/SavedBooks';
 //import Navbar from './components/Navbar';
@@ -38,7 +40,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-  //OLDER COPY AND PASTED VERSION
+//OLDER COPY AND PASTED VERSION
 // function App() {
 //   return (
 //     <div className="App">
@@ -65,12 +67,16 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-          <Routes>
-            <Route 
-              path='*' 
-              element={<h1 className="display-2">Wrong page!</h1>}
-            />
-          </Routes>
+        <Routes>
+          <Route
+            path="/"
+            element={<Home />}
+          />
+          <Route
+            path='*'
+            element={<h1 className="display-2">Wrong page!</h1>}
+          />
+        </Routes>
       </Router>
     </ApolloProvider>
   );
