@@ -20,6 +20,21 @@ export const QUERY_ME = gql`
   }
 `;
 
+ export const QUERY_GETWINE = gql`
+  query getWine($type: String, $minPrice: Int, $maxPrice: Int) {
+    wine(type: $type, minPrice: $minPrice, maxPrice: $maxPrice) {
+      _id
+      name
+      vineyard
+      year
+      varietal
+      price
+      type
+      blurb
+    }
+  }
+`; 
+
 export const QUERY_WINES = gql`
 query Wines {
   wines {
