@@ -18,3 +18,18 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_WINE_BY_PARAM = gql`
+  query getWine(($type: String, $minPrice: Int, $maxPrice: Int)) {
+    wine(type: $type, minPrice: $minPrice, maxPrice: $maxPrice) {
+      _id
+      name
+      vineyard
+      year
+      varietal
+      price
+      type
+      blurb
+    }
+  }
+`;
