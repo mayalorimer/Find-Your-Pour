@@ -1,18 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   Form,
   Button,
-  Col
+  Col, 
+  Card, 
+  Row,
+  Container
 } from 'react-bootstrap';
+import RangeSlider from 'react-bootstrap-range-slider';
+
 
 import { useQuery } from '@apollo/client';
-import { QUERY_WINE_BY_PARAM } from '../utils/queries';
+import { QUERY_GETWINE } from '../utils/queries';
 
-import Auth from '../utils/auth';
 
 
 const WineSearch = () => {
-
+    // a state for holding all of the returned wines
     const [searchedWine, setSearchedWine] = useState([]);
 
     // create a state to hold the desired type
@@ -22,38 +26,45 @@ const WineSearch = () => {
     const [ minPrice, setMinPrice ] = React.useState(2);
     const [ maxPrice, setMaxPrice ] = React.useState(0);
 
-    const [getWine, {error}] = useQuery(QUERY_WINE_BY_PARAM);
+
+//   const { loading, data } = useQuery(QUERY_GETWINE, {
+  //      variables: {type: type, minPrice: minPrice, maxPrice: maxPrice},
+ //   });
+//    const searchedWine = data?.wines || [];
+
+    const [getWine, { error }] = useQuery(QUERY_GETWINE);
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
+ 
 
         try {
-            const { data } = await getWine({ 
-                variables: { type, minPrice, maxPrice } 
+            const { data } = await getWine({
+             type: type, minPrice: minPrice, maxPrice: maxPrice  
             });
+            console.log(data); 
+            setSearchedWine(data);
 // do I need this for wine??
-/*             const bookData = items.map((book) => ({
-                bookId: book.id,
-                authors: book.volumeInfo.authors || ['No author to display'],
-                title: book.volumeInfo.title,
-                description: book.volumeInfo.description,
-                image: book.volumeInfo.imageLinks?.thumbnail || '',
-              })); */
+/*              const wineData = data.map((wine) => ({
+                wineId: wine._id,
+                name: wine.name,
+                vineyard: wine.vineyard || ['No author to display'],
+              })); 
 
             // a way to display the search results
-            setSearchedWine(data);
+            setSearchedWine(wineData);
             setType('');
             setMinPrice('');
-            setMaxPrice('');
-        } catch (e) {
-            console.error(e); 
-        }
+            setMaxPrice(''); */
+        } catch (error) {
+            console.error(error); 
+        } 
     };
 
 
 return (
     <>
-    <Form onSubmite={handleFormSubmit}>
+    <Form onSubmit={handleFormSubmit}>
         <Form.Select size="lg" onChange={(e) => setType(e.target.value)}>
             <Form.Label column sm="4">
             Select Desired Type
@@ -99,25 +110,26 @@ return (
             ? `Viewing ${searchedWine.length} results:`
             : 'Select parameters to begin'}
         </h2>
-        <CardColumns>
+        {/* // was cardcolumns */}
+        <Card>
           {searchedWine.map((wine) => {
             return (
-              <Card key={wine._Id} border="dark">
+              <Card key={wine.wineId} border="dark">
                 <Card.Body>
                   <Card.Title>{wine.name}</Card.Title>
                   <ul>
                     <li>{wine.vineyard}</li>
-                    <li>{wine.year}</li>
+{/*                     <li>{wine.year}</li>
                     <li>{wine.varietal}</li>
                     <li>${wine.price}</li>
-                    <li>{wine.type}</li>
+            <li>{wine.type}</li> */ }
                   </ul>
-                  <Card.Text>{wine.blurb}</Card.Text>
+                  <Card.Text>{wine.name}</Card.Text> 
                 </Card.Body>
               </Card>
             );
           })}
-        </CardColumns>
+        </Card>
       </Container>
   </>
   );
