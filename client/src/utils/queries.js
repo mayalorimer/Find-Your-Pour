@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 
+
 export const QUERY_ME = gql`
   {
     me {
@@ -18,3 +19,17 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_WINES = gql`
+query Wines {
+  wines {
+    _id
+    name
+    vineyard
+    year
+    varietal
+    price
+    type
+    blurb
+  }
+}`
