@@ -75,8 +75,7 @@ const resolvers = {
     //   }
     //   const token = signToken(user);
     //   return { token, user };
-    // }, 
-    },  
+    // },  
     createWine: async (parent, { name, vineyard, year, varietal, price, type, blurb }, context) => {
       // creates the new wine in the database
       if (context.user) {
@@ -90,9 +89,9 @@ const resolvers = {
       
       return wine; 
       }
-    }
->>>>>>> main
-  },
+    }, 
+  }
+
 };
 
 module.exports = resolvers;
