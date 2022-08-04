@@ -14,40 +14,50 @@ import {
 } from 'react-bootstrap';
 
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_ME } from '../utils/queries';
+import { QUERY_ME, QUERY_WINES } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_WINES);
-  const wines = data?.wines || [];
+  return (<div> HOMEPAGE </div>)
+}
 
-  return (
-    <main>
-      <div className="flex-row justify-center">
-        <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: '1px dotted #1a1a1a' }}
-        >
-          <Wine />
-        </div>
-        <div className="col-12 col-md-8 mb-3">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <Wine
-              wines={wine}
+
+// const Home = () => {
+//   const { loading, data } = useQuery(QUERY_WINES);
+//   const wines = data?.wines || [];
+//   console.log(wines);
+
+//   return (
+//     <main>
+//       {/* <div className="flex-row justify-center">
+//         <div
+//           className="col-12 col-md-10 mb-3 p-3"
+//           style={{ border: '1px dotted #1a1a1a' }}
+//         >
+//         </div>
+//         <div className="col-12 col-md-8 mb-3">
+//           {loading ? (
+//             <div>Loading...</div>
+//           ) : (
+//             <div>
               
-            />
-          )}
-        </div>
-      </div>
-    </main>
-  );
+//             </div>
+//           )}
+//         </div>
+//       </div> */}
+
+//       <div>
+//       home page!!
+//       </div>
 
 
-};
+//     </main>
+//   );
+
+
+// };
 
 // const AllWine = () => {
 //   const { loading, data } = useQuery(QUERY_ME);
