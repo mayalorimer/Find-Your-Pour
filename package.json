@@ -1,7 +1,7 @@
 {
   "name": "tech-friends",
   "version": "1.0.0",
-  "description": "",
+  "description": "As a Winery, I want to post wines + associated info to entice customers.",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
@@ -15,5 +15,21 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayalorimer/Find-Your-Pour.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mayalorimer/Find-Your-Pour/issues"
+  },
+  "homepage": "https://github.com/mayalorimer/Find-Your-Pour#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "express": "^4.18.1",
+    "graphql": "^16.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.5.0",
+    "react-dom": "^18.2.0"
   }
 }

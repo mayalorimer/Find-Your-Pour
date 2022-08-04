@@ -31,9 +31,40 @@ const resolvers = {
       return Wine.find({price: {...priceQuery}}, typeQuery);
     },
 
+        // finding an array of wines based off the paramaters the user picks 
+        getWine: async (parent, { type, minPrice, maxPrice }) => {
+          const params = type ?  type  : "";
+          let priceQuery = {};
+          if (minPrice){
+            priceQuery = { ...priceQuery, $gte: minPrice };
+          }
+           if (maxPrice) {
+           priceQuery = { ...priceQuery, $lte: maxPrice };
+          }
+          if (!type && minPrice){
+            return Wine.find({
+              price: { $gte:minPrice, $lte:maxPrice }
+            });
+          }
+          else if(!minPrice && type){
+            return Wine.find({ type });
+          }
+          else {
+            return Wine.find({
+              type: params, 
+              $or: [ {price: { $gte:minPrice, $lte:maxPrice }} ]
+            })
+          }
+        },
+
+      wines: async (parent, args) => {
+          return Wine.find()
+      }, 
+        
     getOneWine: async (parent, { wineID }) => {
       return Wine.findOne({ _id: wineID }); 
     },
+
   },
 
   Mutation: {
