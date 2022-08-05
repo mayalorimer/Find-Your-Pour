@@ -39,9 +39,45 @@
         "name": "Rose",
         "vineyard": "Wolff",
         "year": "2021",
-        "varietal": "",
+        "varietal": "Blend",
         "price": 29,
         "type": "rose",
         "blurb": "Tastes of summer with hints of watermellon and strawberry."
+    },
+    {
+        "name": "Antiqua",
+        "vineyard": "Kelsey See Canyon",
+        "year": "2020",
+        "varietal": "Grenache",
+        "price": 48,
+        "type": "dessert",
+        "blurb": "Any storm for a port. Perfect to top of dinner or top off some vanilla ice cream."
+    },
+    {
+        "name": "Chardonnay",
+        "vineyard": "Tolosa",
+        "year": "2021",
+        "varietal": "Chardonnay",
+        "price": 32,
+        "type": "white",
+        "blurb": "This pure stainless Chardonnay has bright apple and apricot notes."
+    },
+    {
+        "name": "Villa Wolff Dry Reisling",
+        "vineyard": "Wolff",
+        "year": "2018",
+        "varietal": "Reisling",
+        "price": 48,
+        "type": "white",
+        "blurb": "Pure stony fruit and medium body with a light and crisp finish."
+    },
+    {
+        "name": "Cabernet Sauvignon",
+        "vineyard": "J Dusi",
+        "year": "2018",
+        "varietal": "Cabernet Sauvignon",
+        "price": 48,
+        "type": "red",
+        "blurb": "This full bodied red has juicy cherry and plum notes."
     }
 ]
