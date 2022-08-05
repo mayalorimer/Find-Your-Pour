@@ -41,3 +41,43 @@ code {
   border-radius: 4px;
   margin: 8px;
 }
+
+.slideLabel {
+  font-size: 30px; 
+}
+.sliderSelect,
+.typeSelect,
+.labels {
+  border-style: solid; 
+  border-radius: 10px;
+  margin: 5px;
+  padding: 5px; 
+  background-color: #fed8d8;
+  text-align: center;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.submitBtn {
+  background-color:#800000;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: black;
+  margin: 5px;
+}
+
+.selectOption {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.buttonYes {
+  margin-left: 20%;
+}
