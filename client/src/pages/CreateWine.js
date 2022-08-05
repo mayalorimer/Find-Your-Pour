@@ -1,32 +1,106 @@
-import React from 'react';
-import { Navigate, useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
 
-function CreateWine(props) {
+import { CREATE_WINE } from '../../utils/mutations';
+
+import Auth from '../../utils/auth';
+import { set } from 'mongoose';
+
+const CREATE_WINE = () => {
+  const [name, setName] = useState('');
+  const [vineyard, setVineyard] = useState('');
+  const [year, setYear] = useState(0);
+  const [varietal, setVarietal] = useState('')
+  const [price, setPrice] = useState(0);
+  const [type, setType] = useState('');
+  const [blurb, setBlurb] = useState('');
+
+
+  const [createWine, { error }] = useMutation(CREATE_WINE);
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data } = await createWine({
+        variables: {
+         name,
+         vineyard,
+         year,
+         varietal,
+         price,
+         type,
+         blurb
+        },
+      });
+
+      setName('');
+      setVineyard('')
+      setYear(0)
+      setVarietal('')
+      setPrice(0)
+      setType('')
+      setBlurb('')
+
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    if (name === 'commentText' && value.length <= 280) {
+      setCommentText(value);
+      setCharacterCount(value.length);
+    }
+  };
+
   return (
-    <form>
-      <div className="form-group">
-        <label htmlFor="search">Search:</label>
-        <input
-          onChange={props.handleInputChange}
-          value={props.value}
-          name="search"
-          type="text"
-          className="form-control"
-          placeholder="Create a wine"
-          id="search"
-        />
-        <br />
-        <button
-          onClick={props.handleFormSubmit}
-          className="btn btn-primary"
-          type="submit"
-        >
-          Search
-        </button>
-      </div>
-    </form>
-  );
-}
+    <div>
+      <h4>What are your thoughts on this thought?</h4>
 
-export default SearchForm;
+      {Auth.loggedIn() ? (
+        <>
+          <p
+            className={`m-0 ${
+              characterCount === 280 || error ? 'text-danger' : ''
+            }`}
+          >
+            Character Count: {characterCount}/280
+            {error && <span className="ml-2">{error.message}</span>}
+          </p>
+          <form
+            className="flex-row justify-center justify-space-between-md align-center"
+            onSubmit={handleFormSubmit}
+          >
+            <div className="col-12 col-lg-9">
+              <textarea
+                name="commentText"
+                placeholder="Add your comment..."
+                value={commentText}
+                className="form-input w-100"
+                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                onChange={handleChange}
+              ></textarea>
+            </div>
+
+            <div className="col-12 col-lg-3">
+              <button className="btn btn-primary btn-block py-3" type="submit">
+                Add Comment
+              </button>
+            </div>
+          </form>
+        </>
+      ) : (
+        <p>
+          You need to be logged in to share your thoughts. Please{' '}
+          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+        </p>
+      )}
+    </div>
+  );
+};
+
+export default CommentForm;

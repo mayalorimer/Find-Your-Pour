@@ -23,3 +23,18 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const CREATE_WINE = gql`
+mutation Mutation($name: String!, $vineyard: String!, $year: Int!, $price: Int!, $type: String!, $varietal: String, $blurb: String) {
+  createWine(name: $name, vineyard: $vineyard, year: $year, price: $price, type: $type, varietal: $varietal, blurb: $blurb) {
+    _id
+    name
+    vineyard
+    year
+    varietal
+    price
+    type
+    blurb
+  }
+}
+`;
