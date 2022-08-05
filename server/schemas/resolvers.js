@@ -61,22 +61,24 @@ const resolvers = {
 
       return { token, user };
     },
-    // login: async (parent, { email, password }) => {
-    //   const user = await User.findOne({ email });
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
 
-    //   if (!user) {
-    //     throw new AuthenticationError('Incorrect credentials');
-    //   }
+      if (!user) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
 
-    //   const correctPw = await user.isCorrectPassword(password);
+      const correctPw = await user.isCorrectPassword(password);
 
-    //   if (!correctPw) {
-    //     throw new AuthenticationError('Incorrect credentials');
-    //   }
-    //   const token = signToken(user);
-    //   return { token, user };
-    // },  
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+      const token = signToken(user);
+      return { token, user };
+    },  
+    
     createWine: async (parent, { name, vineyard, year, varietal, price, type, blurb }) => {
+
       // creates the new wine in the database
         const wine = await Wine.create({ name, vineyard, year, varietal, price, type, blurb });
 
