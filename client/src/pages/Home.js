@@ -29,9 +29,8 @@ const Home = () => {
   return (
     <div class="flex">
       <div>
-        
       <h3>
-      <img src= {winelogo} height={60} width={60} />Find-Your-Pour Homepage Wine List: - Navbar will go here - <img src= {winelogo} height={60} width={60} />
+      <img src= {winelogo} height={60} width={60} />Find-Your-Pour ..Navbar Here.. <img src= {winelogo} height={60} width={60} />
       </h3>
       </div>
       <div class="flex">
