@@ -14,6 +14,8 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NavTabs from './pages/NavTabs';
+import CreateWine from './pages/CreateWine';
+import WineSearch from './pages/WineSearch';
 //import Navbar from './pages/Navbar';
 //import Navi from './pages/Navbar';
 
@@ -47,10 +49,9 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+      <Router>
       <PortfolioContainer />
-      {/* <Router>
         <>
-        <Navi />
         <Routes>
           <Route
             path="/"
@@ -65,12 +66,20 @@ function App() {
             element={<Signup />}
           />
           <Route
+            path="/createwine"
+            element={<CreateWine />}
+          />
+          <Route
+            path="/winesearch"
+            element={<WineSearch />}
+          />
+          <Route
             path='*'
             element={<h1 className="display-2">Wrong page!</h1>}
           />
         </Routes>
         </>
-      </Router> */}
+      </Router>
     </ApolloProvider>
   );
 }

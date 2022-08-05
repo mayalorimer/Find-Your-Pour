@@ -5,7 +5,7 @@ import Login from './Login';
 import Signup from './Signup';
 //import Profile from './Profile';
 //import CreeateWine from './CreateWine';
-//import WineSearch from './WineSearch';
+import WineSearch from './WineSearch';
 
 
 export default function PortfolioContainer() {
@@ -22,6 +22,9 @@ export default function PortfolioContainer() {
     if (currentPage === 'Signup') {
       return <Signup />;
     }
+    if (currentPage === 'WineSearch') {
+      return <WineSearch />;
+    }
     //return <Contact />;
   };
 
@@ -32,7 +35,7 @@ export default function PortfolioContainer() {
       {/* We are passing the currentPage from state and the function to update it */}
       <NavTabs currentPage={currentPage} handlePageChange={handlePageChange} />
       {/* Here we are calling the renderPage method which will return a component  */}
-      {renderPage()}
+      {/* {renderPage()} */}
     </div>
   );
 }

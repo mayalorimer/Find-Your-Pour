@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 
@@ -8,6 +8,15 @@ import Auth from '../utils/auth';
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error, data }] = useMutation(LOGIN_USER);
+  const navigate = useNavigate();
+  const [redirect, setRedirect] = useState(false)
+
+
+  useEffect(()=>{
+    if (redirect){
+      navigate("/createwine")
+    }
+  }, [redirect])
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -29,6 +38,9 @@ const Login = (props) => {
       });
 
       Auth.login(data.login.token);
+      console.log("About to Navigate")
+      navigate("/createwine")
+      //setRedirect(true)
     } catch (e) {
       console.error(e);
     }
@@ -48,8 +60,8 @@ const Login = (props) => {
           <div className="card-body">
             {data ? (
               <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
+                {' '}
+                <Link to="/createwine"></Link>
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
