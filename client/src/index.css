@@ -16,7 +16,13 @@ code {
 
 /* Class */
 
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .winecard {
+  flex: auto;
   text-align: center;
   max-width: 400px;
   max-height: 360px;

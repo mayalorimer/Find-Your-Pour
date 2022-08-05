@@ -26,9 +26,9 @@ const Home = () => {
   console.log(wines);
 
   return (
-    <div>
+    <div class="flex">
       <h3>Find-Your-Pour Homepage Wine List: - Navbar will go here -</h3>
-      <div>
+      <div class="flex">
         {wines.map((wine) => {
           return (
             <div class="outline winecard">
