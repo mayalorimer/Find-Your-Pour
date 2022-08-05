@@ -30,7 +30,7 @@ const Home = () => {
     <div class="flex">
       <div>
       <h3>
-      <img src= {winelogo} height={60} width={60} />Find-Your-Pour ..Navbar Here.. <img src= {winelogo} height={60} width={60} />
+      <img src= {winelogo} alt="find-your-pour logo wineglass and magnifying glass" height={60} width={60} />Find-Your-Pour ..Navbar Here.. <img src= {winelogo} alt="find-your-pour logo wineglass and magnifying glass" height={60} width={60} />
       </h3>
       </div>
       <div class="flex">
