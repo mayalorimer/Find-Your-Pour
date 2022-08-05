@@ -13,7 +13,10 @@ import { setContext } from '@apollo/client/link/context';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Navbar from './pages/Navbar';
+import Navi from './pages/Navbar';
 
+import PortfolioContainer from "./pages/PortfolioContainer";
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -43,7 +46,10 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
+      <PortfolioContainer />
+      {/* <Router>
+        <>
+        <Navi />
         <Routes>
           <Route
             path="/"
@@ -62,7 +68,8 @@ function App() {
             element={<h1 className="display-2">Wrong page!</h1>}
           />
         </Routes>
-      </Router>
+        </>
+      </Router> */}
     </ApolloProvider>
   );
 }
