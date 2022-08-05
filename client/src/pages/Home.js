@@ -5,6 +5,7 @@
 
 
 import React from 'react';
+import winelogo from './FindYourPourLogo.png';
 import {
   Jumbotron,
   Container,
@@ -26,9 +27,13 @@ const Home = () => {
   console.log(wines);
 
   return (
-    <div>
-      <h3>Find-Your-Pour Homepage Wine List: - Navbar will go here -</h3>
+    <div class="flex">
       <div>
+      <h3>
+      <img src= {winelogo} alt="find-your-pour logo wineglass and magnifying glass" height={60} width={60} />Find-Your-Pour ..Navbar Here.. <img src= {winelogo} alt="find-your-pour logo wineglass and magnifying glass" height={60} width={60} />
+      </h3>
+      </div>
+      <div class="flex">
         {wines.map((wine) => {
           return (
             <div class="outline winecard">
