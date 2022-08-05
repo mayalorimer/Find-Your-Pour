@@ -76,19 +76,18 @@ const resolvers = {
     //   const token = signToken(user);
     //   return { token, user };
     // },  
-    createWine: async (parent, { name, vineyard, year, varietal, price, type, blurb }, context) => {
+    createWine: async (parent, { name, vineyard, year, varietal, price, type, blurb }) => {
       // creates the new wine in the database
-      if (context.user) {
         const wine = await Wine.create({ name, vineyard, year, varietal, price, type, blurb });
 
       // adds the wine to the current users wine array
-      await User.findOneAndUpdate (
-        { _id: context.user._id},
-        { $addToSet: { wine: wine._id }}
-      )
+   //   await User.findOneAndUpdate (
+   //    { _id: context.user._id},
+   //     { $addToSet: { wine: wine._id }}
+  //    )
       
       return wine; 
-      }
+
     }, 
   }
 
