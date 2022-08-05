@@ -20,7 +20,6 @@ import { QUERY_ME, QUERY_WINES } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
-
 const Home = () => {
   const { loading, data } = useQuery(QUERY_WINES);
   const wines = data?.wines || [];

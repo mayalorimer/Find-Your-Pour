@@ -11,6 +11,7 @@ import RangeSlider from 'react-bootstrap-range-slider';
 
 import { useQuery, useLazyQuery } from '@apollo/client';
 import { QUERY_GETWINE } from '../utils/queries';
+import { addTypenameToDocument } from '@apollo/client/utilities';
 
 
 
@@ -25,24 +26,33 @@ const WineSearch = () => {
     const [minPrice, setMinPrice] = React.useState(2);
     const [maxPrice, setMaxPrice] = React.useState(0);
 
-
-    //   const { loading, data } = useQuery(QUERY_GETWINE, {
-    //      variables: {type: type, minPrice: minPrice, maxPrice: maxPrice},
-    //   });
-    //    const searchedWine = data?.wines || [];
-
     const [getWine, { loading, data }] = useLazyQuery(QUERY_GETWINE, {
         variables: { type: type, minPrice: parseInt(minPrice), maxPrice: parseInt(maxPrice) }
     });
     console.log(data);
-    console.log(type, minPrice, maxPrice);
     // const getWine = useQuery(QUERY_GETWINE);
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
 
         try {
-            await getWine();
+        //  const winery = await getWine();
+            const winery = await getWine();
+            console.log("type:" , winery.data.getWine[0].type); 
+            const searchedWine = winery.data.getWine.map((wine) => ({
+                _id: wine._id,
+                name: wine.name,
+                vineyard: wine.vineyard,
+                year: wine.year,
+                varietal: wine.varietal || ['Blend'],
+                price: wine.price,
+                type: wine.type,
+                blurb: wine.blurb
+            }))
+            console.log(searchedWine);
+            setSearchedWine(searchedWine);
+        //    console.log("winery:" , winery);
+        //    console.log(winery.data.getWine[0].name);
         } catch (error) {
             console.error(error);
         }
@@ -94,7 +104,28 @@ const WineSearch = () => {
 
 
             <Container>
-                
+                {searchedWine.map((wine) => {
+                    return (
+                        <div class="outline winecard">
+
+                        <p key={wine._id}>
+          
+                          <p class="headline">{wine.vineyard}</p>
+                          {wine.name}
+                          <br></br><br></br>
+                          • {wine.year} •
+                          <br></br><br></br>
+                          {wine.varietal}
+                          <br></br><br></br>
+                          <p class="outline">{wine.name} is a {wine.type} wine...
+                          <br></br>
+                           {wine.blurb}</p>
+                          <br></br>
+                          ${wine.price}
+                        </p>
+                      </div>
+                    )
+                })}
             </Container>
         </>
     );
