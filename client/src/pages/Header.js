@@ -9,16 +9,28 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className="bg-info text-dark mb-4 py-3 display-flex align-center">
-      <div className="container flex-column justify-space-between-lg justify-center align-center text-center">
-        <Link className="text-dark" to="/">
-          <h1 className="m-0" style={{ fontSize: '3rem' }}>
-            Tech Friends
-          </h1>
+    // <header className="bg-info text-dark mb-4 py-3 display-flex align-center">
+    <header>
+      {/* <div className="container flex-column justify-space-between-lg justify-center align-center text-center"> */}
+        <div>
+        <Link to="/">
+          Home
         </Link>
-        <p className="m-0" style={{ fontSize: '1.75rem', fontWeight: '700' }}>
-          Meet your new programming pals.
-        </p>
+        {Auth.loggedIn() ?
+        (
+          <>
+          <Link to="/createwine">Create Wine</Link>
+          <Link to="/winesearch">Search Wine</Link>
+          <Link onClick={logout}>Logout</Link>
+          </>  
+        ) : (
+          <>
+          <Link to="/login">Login</Link>
+          <Link to="/signup">Signup</Link>
+          <Link to="/winesearch">Search Wine</Link>
+          </>
+        )
+        }
         <div>
           {Auth.loggedIn() ? (
             <>
