@@ -20,6 +20,7 @@ import WineSearch from './pages/WineSearch';
 //import Navi from './pages/Navbar';
 
 import PortfolioContainer from "./pages/PortfolioContainer";
+import Footer from './pages/Footer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -79,6 +80,7 @@ function App() {
           />
         </Routes>
         </>
+        <Footer /> 
       </Router>
     </ApolloProvider>
   );
