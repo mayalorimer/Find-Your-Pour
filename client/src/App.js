@@ -45,7 +45,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
       {/* <Header /> */}
-      <NavTabs />
+      {/* <NavTabs /> */}
       <PortfolioContainer />
         <Routes>
           <Route
