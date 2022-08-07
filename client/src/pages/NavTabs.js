@@ -18,7 +18,6 @@ import Auth from "../utils/auth";
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import NavTabs from './pages/NavTabs';
 import Header from './pages/Navbar';
 import CreateWine from './pages/CreateWine';
 import WineSearch from './pages/WineSearch';
@@ -70,7 +69,7 @@ function NavTabs({ currentPage, handlePageChange }) {
               </Navbar.Collapse>
             </Container>
           </Navbar>
-          <Switch>
+          <Routes>
             <Route path="/">
               <Home />
             </Route>
@@ -80,7 +79,7 @@ function NavTabs({ currentPage, handlePageChange }) {
             <Route path="/createwine">
               <CreateWine />
             </Route>
-          </Switch>
+          </Routes>
           {/* <Nav.Link to="/">Home</Nav.Link>
           <Nav.Link to="/winesearch">Search Wine</Nav.Link> */}
         </>
@@ -121,7 +120,7 @@ function NavTabs({ currentPage, handlePageChange }) {
               </Navbar.Collapse>
             </Container>
           </Navbar>
-          <Switch>
+          <Routes>
             <Route path="/">
               <Home />
             </Route>
@@ -134,7 +133,7 @@ function NavTabs({ currentPage, handlePageChange }) {
             <Route path="/signup">
               <Signup />
             </Route>
-          </Switch>
+          </Routes>
           {/* <Nav.Link to="/">Home</Nav.Link>
           <Nav.Link to="/winesearch">Search Wine</Nav.Link> */}
           {/* <Link to="/">Home</Link>
