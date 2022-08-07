@@ -18,7 +18,8 @@ function NavTabs({ currentPage, handlePageChange }) {
           <Link to ="/">Home</Link>
           <Link to="/createwine">Create Wine</Link>
           <Link to="/winesearch">Search Wine</Link>
-          <Link to="login">Logout</Link>
+          {/* <Link to="login">Logout</Link> */}
+          <Link onClick={Auth.logout}>Logout</Link>
           </>  
         ) : (
           <>
