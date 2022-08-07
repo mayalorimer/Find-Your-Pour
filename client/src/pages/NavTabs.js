@@ -20,7 +20,7 @@ function NavTabs({ currentPage, handlePageChange }) {
           <Link to="/createwine">Create Wine</Link>
           <Link to="/winesearch">Search Wine</Link>
           {/* <Link to="login">Logout</Link> */}
-          <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+          <Nav.Link as={Link} to='/' onClick={Auth.logout}>Logout</Nav.Link>
           </>  
         ) : (
           <>
