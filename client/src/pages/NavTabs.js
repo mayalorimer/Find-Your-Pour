@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Routes, Link } from "react-router-dom";
 import {
   Navbar,
   Nav,
@@ -15,12 +15,12 @@ import {
 // Here we are using object destructuring assignment to pluck off our variables from the props object
 // We assign them to their own variable names
 import Auth from "../utils/auth";
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import Header from './pages/Navbar';
-import CreateWine from './pages/CreateWine';
-import WineSearch from './pages/WineSearch';
+import Home from './Home';
+import Login from './Login';
+import Signup from './Signup';
+import Header from './Navbar';
+import CreateWine from './CreateWine';
+import WineSearch from './WineSearch';
 
 const logout = (event) => {
   event.preventDefault();
