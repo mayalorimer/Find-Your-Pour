@@ -80,8 +80,8 @@ function App() {
           />
         </Routes>
         </>
-        <Footer /> 
       </Router>
+      <Footer /> 
     </ApolloProvider>
   );
 }
