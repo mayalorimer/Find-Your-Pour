@@ -70,15 +70,9 @@ function NavTabs({ currentPage, handlePageChange }) {
             </Container>
           </Navbar>
           <Routes>
-            <Route path="/">
-              <Home />
-            </Route>
-            <Route path="/winesearch">
-              <WineSearch />
-            </Route>
-            <Route path="/createwine">
-              <CreateWine />
-            </Route>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/winesearch" element={<WineSearch />}></Route>
+            <Route path="/createwine" element={<CreateWine />}></Route>
           </Routes>
           {/* <Nav.Link to="/">Home</Nav.Link>
           <Nav.Link to="/winesearch">Search Wine</Nav.Link> */}
@@ -111,8 +105,7 @@ function NavTabs({ currentPage, handlePageChange }) {
                 </Nav>
                 <Nav>
                   <Nav.Link as={Link} to="/login">Vineyard Login</Nav.Link>
-                  <Nav.Link as={Link} to="/signup">Vineyard Signup
-                  </Nav.Link>
+                  <Nav.Link as={Link} to="/signup">Vineyard Signup</Nav.Link>
                   {/* <Nav.Link as={Link} to="/" onClick={Auth.logout}>
             Logout
           </Nav.Link> */}
@@ -121,18 +114,10 @@ function NavTabs({ currentPage, handlePageChange }) {
             </Container>
           </Navbar>
           <Routes>
-            <Route path="/">
-              <Home />
-            </Route>
-            <Route path="/winesearch">
-              <WineSearch />
-            </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="/signup">
-              <Signup />
-            </Route>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/winesearch" element={<WineSearch />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/signup" element={<Signup/>}></Route>
           </Routes>
           {/* <Nav.Link to="/">Home</Nav.Link>
           <Nav.Link to="/winesearch">Search Wine</Nav.Link> */}
