@@ -2,10 +2,38 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 // Here we are using object destructuring assignment to pluck off our variables from the props object
 // We assign them to their own variable names
+import Auth from '../utils/auth';
+
+const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
 function NavTabs({ currentPage, handlePageChange }) {
   return (
-    <ul className="nav nav-tabs">
-      <li className="nav-item">
+    <div>
+{/* <ul className="nav nav-tabs"> */}
+        {Auth.loggedIn() ?
+        (
+          <>
+          <Link to ="/">Home</Link>
+          <Link to="/createwine">Create Wine</Link>
+          <Link to="/winesearch">Search Wine</Link>
+          <Link to="login">Logout</Link>
+          </>  
+        ) : (
+          <>
+          <Link to="/login">Login</Link>
+          <Link to="/signup">Signup</Link>
+          <Link to="/winesearch">Search Wine</Link>
+          </>
+        )
+}
+</div>
+  );
+};
+  export default NavTabs;
+
+      {/* <li className="nav-item">
         <Link to="/"
           // This is a conditional (ternary) operator that checks to see if the current page is "Home"
           // If it is, we set the current page to 'nav-link-active', otherwise we set it to 'nav-link'
@@ -47,9 +75,4 @@ function NavTabs({ currentPage, handlePageChange }) {
         >
           Contact
         </a>
-      </li> */}
-    </ul>
-  );
-}
-
-export default NavTabs;
+</li> */}
