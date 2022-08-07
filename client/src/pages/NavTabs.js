@@ -107,8 +107,21 @@ function NavTabs({ currentPage, handlePageChange }) {
                   {/* </NavDropdown> */}
                 </Nav>
                 <Nav>
-                  <Nav.Link as={Link} to="/login">Vineyard Login</Nav.Link>
-                  <Nav.Link as={Link} to="/signup">Vineyard Signup</Nav.Link>
+                <NavDropdown title="Winemakers" id="collasible-nav-dropdown">
+                    <NavDropdown.Item as={Link} to="/login">Login
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/signup">Signup
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.3">
+                      Delete Wine
+                    </NavDropdown.Item>
+                    {/* <NavDropdown.Divider />
+                    <NavDropdown.Item href="#action/3.4">
+                      Separated link
+                    </NavDropdown.Item> */}
+                  </NavDropdown>
+                  {/* <Nav.Link as={Link} to="/login">Vineyard Login</Nav.Link>
+                  <Nav.Link as={Link} to="/signup">Vineyard Signup</Nav.Link> */}
                   {/* <Nav.Link as={Link} to="/" onClick={Auth.logout}>
             Logout
           </Nav.Link> */}
