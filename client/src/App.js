@@ -13,6 +13,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NavTabs from './pages/NavTabs';
+import Header from './pages/Header';
 import CreateWine from './pages/CreateWine';
 import WineSearch from './pages/WineSearch';
 //import Navbar from './pages/Navbar';
@@ -45,7 +46,6 @@ function App() {
       <Router>
       <Header />
       <PortfolioContainer />
-        <>
         <Routes>
           <Route
             path="/"
@@ -72,7 +72,6 @@ function App() {
             element={<h1 className="display-2">Wrong page!</h1>}
           />
         </Routes>
-        </>
       </Router>
     </ApolloProvider>
   );
