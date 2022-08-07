@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import {
   Navbar,
   Nav,
@@ -15,6 +15,13 @@ import {
 // Here we are using object destructuring assignment to pluck off our variables from the props object
 // We assign them to their own variable names
 import Auth from "../utils/auth";
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import NavTabs from './pages/NavTabs';
+import Header from './pages/Navbar';
+import CreateWine from './pages/CreateWine';
+import WineSearch from './pages/WineSearch';
 
 const logout = (event) => {
   event.preventDefault();
@@ -22,6 +29,7 @@ const logout = (event) => {
 };
 function NavTabs({ currentPage, handlePageChange }) {
   return (
+    <Router>
     <div>
       {/* <ul className="nav nav-tabs"> */}
       {Auth.loggedIn() ? (
@@ -32,10 +40,10 @@ function NavTabs({ currentPage, handlePageChange }) {
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
-                  <Nav.Link to="/winesearch">Search Wine</Nav.Link>
+                  <Nav.Link as={Link} to="/winesearch">Search Wine</Nav.Link>
                   {/* <Nav.Link href="#pricing">Pricing</Nav.Link> */}
                   <NavDropdown title="Edit Wines" id="collasible-nav-dropdown">
-                    <NavDropdown.Item to="/createwine">
+                    <NavDropdown.Item as={Link} to="/createwine">
                       Post New Wine
                     </NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">
@@ -62,6 +70,17 @@ function NavTabs({ currentPage, handlePageChange }) {
               </Navbar.Collapse>
             </Container>
           </Navbar>
+          <Switch>
+            <Route path="/">
+              <Home />
+            </Route>
+            <Route path="/winesearch">
+              <WineSearch />
+            </Route>
+            <Route path="/createwine">
+              <CreateWine />
+            </Route>
+          </Switch>
           {/* <Nav.Link to="/">Home</Nav.Link>
           <Nav.Link to="/winesearch">Search Wine</Nav.Link> */}
         </>
@@ -73,7 +92,7 @@ function NavTabs({ currentPage, handlePageChange }) {
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
-                  <Nav.Link to="/winesearch">Search Wine</Nav.Link>
+                  <Nav.Link as={Link} to="/winesearch">Search Wine</Nav.Link>
                   {/* <Nav.Link href="#pricing">Pricing</Nav.Link> */}
                   {/* <NavDropdown title="Edit Wines" id="collasible-nav-dropdown">
                     <NavDropdown.Item to="/createwine">
@@ -92,8 +111,8 @@ function NavTabs({ currentPage, handlePageChange }) {
                   {/* </NavDropdown> */}
                 </Nav>
                 <Nav>
-                  <Nav.Link to="/login">Vineyard Login</Nav.Link>
-                  <Nav.Link to="/signup">Vineyard Signup
+                  <Nav.Link as={Link} to="/login">Vineyard Login</Nav.Link>
+                  <Nav.Link as={Link} to="/signup">Vineyard Signup
                   </Nav.Link>
                   {/* <Nav.Link as={Link} to="/" onClick={Auth.logout}>
             Logout
@@ -102,6 +121,20 @@ function NavTabs({ currentPage, handlePageChange }) {
               </Navbar.Collapse>
             </Container>
           </Navbar>
+          <Switch>
+            <Route path="/">
+              <Home />
+            </Route>
+            <Route path="/winesearch">
+              <WineSearch />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/signup">
+              <Signup />
+            </Route>
+          </Switch>
           {/* <Nav.Link to="/">Home</Nav.Link>
           <Nav.Link to="/winesearch">Search Wine</Nav.Link> */}
           {/* <Link to="/">Home</Link>
@@ -111,6 +144,7 @@ function NavTabs({ currentPage, handlePageChange }) {
         </>
       )}
     </div>
+    </Router>
   );
 }
 export default NavTabs;
