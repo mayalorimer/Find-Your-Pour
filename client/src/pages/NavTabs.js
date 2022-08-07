@@ -8,6 +8,7 @@ import {
   Tab,
   NavDropdown,
 } from "react-bootstrap";
+import './FindYourPourLogo.png';
 // import Container from 'react-bootstrap/Container';
 // import Nav from 'react-bootstrap/Nav';
 // import Navbar from 'react-bootstrap/Navbar';
@@ -35,7 +36,9 @@ function NavTabs({ currentPage, handlePageChange }) {
         <>
           <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-              <Navbar.Brand as={Link} to="/">Find Your Pour</Navbar.Brand>
+              <Navbar.Brand as={Link} to="/">
+              Find Your Pour
+              </Navbar.Brand>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
