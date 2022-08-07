@@ -112,9 +112,9 @@ function NavTabs({ currentPage, handlePageChange }) {
                     </NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/signup">Signup
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">
+                    {/* <NavDropdown.Item href="#action/3.3">
                       Delete Wine
-                    </NavDropdown.Item>
+                    </NavDropdown.Item> */}
                     {/* <NavDropdown.Divider />
                     <NavDropdown.Item href="#action/3.4">
                       Separated link
