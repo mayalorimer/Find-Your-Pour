@@ -13,7 +13,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NavTabs from './pages/NavTabs';
-import Header from './pages/Header';
+import Header from './pages/Navbar';
 import CreateWine from './pages/CreateWine';
 import WineSearch from './pages/WineSearch';
 //import Navbar from './pages/Navbar';
