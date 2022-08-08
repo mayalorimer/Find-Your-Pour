@@ -55,7 +55,7 @@ const Signup = () => {
               <form onSubmit={handleFormSubmit}>
                 <input
                   className="form-input"
-                  placeholder="Your username"
+                  placeholder="Business Name"
                   name="username"
                   type="text"
                   value={formState.username}

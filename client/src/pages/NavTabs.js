@@ -63,8 +63,8 @@ function NavTabs({ currentPage, handlePageChange }) {
                 <NavDropdown title={Auth.getUser().data.username} id="collasible-nav-dropdown">
                     <NavDropdown.Item as={Link} to="/" onClick={Auth.logout}>Logout
                     </NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/signup">Signup
-                    </NavDropdown.Item>
+                    {/* <NavDropdown.Item as={Link} to="/signup">Signup
+                    </NavDropdown.Item> */}
                   </NavDropdown>
                 </Nav>
               </Navbar.Collapse>
@@ -103,7 +103,7 @@ function NavTabs({ currentPage, handlePageChange }) {
                   {/* </NavDropdown> */}
                 </Nav>
                 <Nav>
-                <NavDropdown title="Winemakers" id="collasible-nav-dropdown">
+                <NavDropdown title="Industry Professionals" id="collasible-nav-dropdown">
                     <NavDropdown.Item as={Link} to="/login">Login
                     </NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/signup">Signup
