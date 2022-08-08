@@ -111,7 +111,7 @@ code {
 
 
 /* styling for create wine form */
-.wineAddForm {
+.wineAddForm, .Signup, .Login {
   border-style: solid;
   margin-left: 20%;
   margin-right: 20%;

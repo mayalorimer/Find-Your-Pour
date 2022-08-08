@@ -59,15 +59,13 @@ function NavTabs({ currentPage, handlePageChange }) {
                     </NavDropdown.Item> */}
                   </NavDropdown>
                 </Nav>
-                
                 <Nav>
-                  {/* <Nav.Link href="#deets">More deets</Nav.Link>
-                  <Nav.Link eventKey={2} href="#memes">
-                    Dank memes
-                  </Nav.Link> */}
-                  <Nav.Link as={Link} to="/" onClick={Auth.logout}>
-            Logout{Auth.getUser().data.username}
-          </Nav.Link>
+                <NavDropdown title={Auth.getUser().data.username} id="collasible-nav-dropdown">
+                    <NavDropdown.Item as={Link} to="/" onClick={Auth.logout}>Logout
+                    </NavDropdown.Item>
+                    {/* <NavDropdown.Item as={Link} to="/signup">Signup
+                    </NavDropdown.Item> */}
+                  </NavDropdown>
                 </Nav>
               </Navbar.Collapse>
             </Container>
@@ -77,8 +75,6 @@ function NavTabs({ currentPage, handlePageChange }) {
             <Route path="/winesearch" element={<WineSearch />}></Route>
             <Route path="/createwine" element={<CreateWine />}></Route>
           </Routes>
-          {/* <Nav.Link to="/">Home</Nav.Link>
-          <Nav.Link to="/winesearch">Search Wine</Nav.Link> */}
         </>
       ) : (
         <>
@@ -107,24 +103,12 @@ function NavTabs({ currentPage, handlePageChange }) {
                   {/* </NavDropdown> */}
                 </Nav>
                 <Nav>
-                <NavDropdown title="Winemakers" id="collasible-nav-dropdown">
+                <NavDropdown title="Industry Professionals" id="collasible-nav-dropdown">
                     <NavDropdown.Item as={Link} to="/login">Login
                     </NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/signup">Signup
                     </NavDropdown.Item>
-                    {/* <NavDropdown.Item href="#action/3.3">
-                      Delete Wine
-                    </NavDropdown.Item> */}
-                    {/* <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">
-                      Separated link
-                    </NavDropdown.Item> */}
                   </NavDropdown>
-                  {/* <Nav.Link as={Link} to="/login">Vineyard Login</Nav.Link>
-                  <Nav.Link as={Link} to="/signup">Vineyard Signup</Nav.Link> */}
-                  {/* <Nav.Link as={Link} to="/" onClick={Auth.logout}>
-            Logout
-          </Nav.Link> */}
                 </Nav>
               </Navbar.Collapse>
             </Container>

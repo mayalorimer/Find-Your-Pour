@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 
 const Signup = () => {
@@ -41,7 +43,57 @@ const Signup = () => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
+    <div className="Signup">
+      <h4>Industry Professional Registration</h4>
+      {data ? (
+              <p>
+                Success! You may now head{" "}
+                <Link to="/">back to the homepage.</Link>
+              </p>
+            ) : (
+              <form onSubmit={handleFormSubmit}>
+                <input
+                  className="mb-3"
+                  placeholder="Business Name"
+                  name="username"
+                  type="text"
+                  value={formState.username}
+                  onChange={handleChange}
+                />
+                <input
+                  className="mb-3"
+                  placeholder="Your email"
+                  name="email"
+                  type="email"
+                  value={formState.email}
+                  onChange={handleChange}
+                />
+                <input
+                  className="mb-3"
+                  placeholder="******"
+                  name="password"
+                  type="password"
+                  value={formState.password}
+                  onChange={handleChange}
+                />
+                <button variant="primary" type="submit" className='submitBtn testBtn'>
+                  Register
+                </button>
+              </form>
+            )}
+
+            {error && (
+              <div className="my-3 p-3 bg-danger text-white">
+                {error.message}
+              </div>
+            )}
+          </div>
+  );
+};
+   
+   
+   
+{/* <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card">
           <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
@@ -55,7 +107,7 @@ const Signup = () => {
               <form onSubmit={handleFormSubmit}>
                 <input
                   className="form-input"
-                  placeholder="Your username"
+                  placeholder="Business Name"
                   name="username"
                   type="text"
                   value={formState.username}
@@ -97,7 +149,7 @@ const Signup = () => {
       </div>
     </main>
   );
-};
+}; */}
 
 export default Signup;
 
