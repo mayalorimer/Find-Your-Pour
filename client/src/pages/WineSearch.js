@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
     Form,
     Button,
     Col,
-    Card,
     Row,
     Container
 } from 'react-bootstrap';
 import RangeSlider from 'react-bootstrap-range-slider';
 
-import { useQuery, useLazyQuery } from '@apollo/client';
+import { useLazyQuery } from '@apollo/client';
 import { QUERY_GETWINE } from '../utils/queries';
-import { addTypenameToDocument } from '@apollo/client/utilities';
 
 
 
@@ -55,8 +53,6 @@ const WineSearch = () => {
             setType('');
             setMinPrice(0);
             setMaxPrice(200);
-            //    console.log("winery:" , winery);
-            //    console.log(winery.data.getWine[0].name);
         } catch (error) {
             console.error(error);
         }
@@ -68,35 +64,35 @@ const WineSearch = () => {
             <Form onSubmit={handleFormSubmit} class="searchForm">
                 <div className="labels">
                     <Form.Label column sm="4" className="slideLabel">
-                        Select Desired Type and Price Range:
+                        Select desired type and price range:
                     </Form.Label>
-                    </div>
+                </div>
                 <Form.Group as={Row} className="sliderSelect">
                     <Col xs="6">
-                    <Form.Select size="lg" onChange={(e) => setType(e.target.value)} className="selectOption">
-                        <option value='' defaultValue>Select Type</option>
-                        <option value="red">🍷 Red</option>
-                        <option value="white">🥂 White</option>
-                        <option value='sparkling'>🍾 Sparkling</option>
-                        <option value='rose'>🌷 Rose</option>
-                        <option value='dessert'>🍰 Dessert</option>
-                    </Form.Select>
-                    <br />
-                    <Form.Label>Minimum Price:</Form.Label>
-                    <br/>
+                        <Form.Select size="lg" onChange={(e) => setType(e.target.value)} className="selectOption">
+                            <option value='' defaultValue>Select Type</option>
+                            <option value="red">🍷 Red</option>
+                            <option value="white">🥂 White</option>
+                            <option value='sparkling'>🍾 Sparkling</option>
+                            <option value='rose'>🌷 Rose</option>
+                            <option value='dessert'>🍰 Dessert</option>
+                        </Form.Select>
+                        <br />
+                        <Form.Label>Minimum Price:</Form.Label>
+                        <br />
                         <RangeSlider
                             value={minPrice}
-                            onChange={e => setMinPrice(e.target.value)}
+                            onChange={(e) => setMinPrice(e.target.value)}
                             min={0}
                             max={200}
                         />
                     </Col>
                     <Col xs="6">
-                    <Form.Label>Maximum Price:</Form.Label>
-                    <br/>
+                        <Form.Label>Maximum Price:</Form.Label>
+                        <br />
                         <RangeSlider
                             value={maxPrice}
-                            onChange={e => setMaxPrice(e.target.value)}
+                            onChange={(e) => setMaxPrice(e.target.value)}
                             min={0}
                             max={200}
                         />
