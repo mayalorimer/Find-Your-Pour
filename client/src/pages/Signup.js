@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 
 const Signup = () => {
@@ -41,105 +43,113 @@ const Signup = () => {
   };
 
   return (
-    <div class="wineAddForm">
+    <div className="Signup">
       <h4>Industry Professional Registration</h4>
-      <Form onSubmit={handleFormSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicName">
-          <Form.Label>Business Name</Form.Label>
-          {/* <Form.Control type="text" placeholder="Enter Business Name" value={username} class="formInput" onChange={e => setName(e.target.value)} /> */}
-          <Form.Control className="form-input" placeholder="Enter Business Name" name="username" type="text" value={formState.username} onChange={handleChange} />
-        </Form.Group>
-        {/* <Form.Group className="mb-3" controlId="formBasicVineyard">
-          <Form.Label>Email</Form.Label>
-          <Form.Control type="text" placeholder="Enter Email" value={email} onChange={e => setVineyard(e.target.value)} />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicYear">
-          <Form.Label>Year </Form.Label>
-          <Form.Control type="text" placeholder="Enter Vintage" value={year} onChange={e => setYear(parseInt(e.target.value))} />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicVarietal">
-          <Form.Label>Varietal </Form.Label>
-          <Form.Control type="text" placeholder="Enter Varietal" value={varietal} onChange={e => setVarietal(e.target.value)} />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPrice">
-          <Form.Label>Price </Form.Label>
-          <Form.Control type="text" placeholder="Enter Price" value={price} onChange={e => setPrice(parseInt(e.target.value))} />
-        </Form.Group>
-        <Form.Select aria-label="Default select example" className="dropDown" value={type} onChange={(e) => setType(e.target.value)}>
-          <option clasNames="selection">Select Type</option>
-          <option value="red">🍷 Red</option>
-          <option value="white">🥂 White</option>
-          <option value='sparkling'>🍾 Sparkling</option>
-          <option value='rose'>🌷 Rose</option>
-          <option value='dessert'>🍰 Dessert</option>
-        </Form.Select>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-          <Form.Label>Tell us about the wine</Form.Label>
-          <br />
-          <Form.Control as="textarea" rows={3} value={blurb} onChange={e => setBlurb(e.target.value)} />
-        </Form.Group> */}
-        <Button variant="primary" type="submit" className='submitBtn testBtn'>
-          Register
-        </Button>
-      </Form>
-    </div>
-    // <main className="flex-row justify-center mb-4">
-    //   <div className="col-12 col-lg-10">
-    //     <div className="card">
-    //       <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
-    //       <div className="card-body">
-    //         {data ? (
-    //           <p>
-    //             Success! You may now head{" "}
-    //             <Link to="/">back to the homepage.</Link>
-    //           </p>
-    //         ) : (
-    //           <form onSubmit={handleFormSubmit}>
-    //             <input
-    //               className="form-input"
-    //               placeholder="Business Name"
-    //               name="username"
-    //               type="text"
-    //               value={formState.username}
-    //               onChange={handleChange}
-    //             />
-    //             <input
-    //               className="form-input"
-    //               placeholder="Your email"
-    //               name="email"
-    //               type="email"
-    //               value={formState.email}
-    //               onChange={handleChange}
-    //             />
-    //             <input
-    //               className="form-input"
-    //               placeholder="******"
-    //               name="password"
-    //               type="password"
-    //               value={formState.password}
-    //               onChange={handleChange}
-    //             />
-    //             <button
-    //               className="btn btn-block btn-info"
-    //               style={{ cursor: "pointer" }}
-    //               type="submit"
-    //             >
-    //               Submit
-    //             </button>
-    //           </form>
-    //         )}
+      {data ? (
+              <p>
+                Success! You may now head{" "}
+                <Link to="/">back to the homepage.</Link>
+              </p>
+            ) : (
+              <form onSubmit={handleFormSubmit}>
+                <input
+                  className="mb-3"
+                  placeholder="Business Name"
+                  name="username"
+                  type="text"
+                  value={formState.username}
+                  onChange={handleChange}
+                />
+                <input
+                  className="mb-3"
+                  placeholder="Your email"
+                  name="email"
+                  type="email"
+                  value={formState.email}
+                  onChange={handleChange}
+                />
+                <input
+                  className="mb-3"
+                  placeholder="******"
+                  name="password"
+                  type="password"
+                  value={formState.password}
+                  onChange={handleChange}
+                />
+                <button variant="primary" type="submit" className='submitBtn testBtn'>
+                  Register
+                </button>
+              </form>
+            )}
 
-    //         {error && (
-    //           <div className="my-3 p-3 bg-danger text-white">
-    //             {error.message}
-    //           </div>
-    //         )}
-    //       </div>
-    //     </div>
-    //   </div>
-    // </main>
+            {error && (
+              <div className="my-3 p-3 bg-danger text-white">
+                {error.message}
+              </div>
+            )}
+          </div>
   );
 };
+   
+   
+   
+{/* <main className="flex-row justify-center mb-4">
+      <div className="col-12 col-lg-10">
+        <div className="card">
+          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
+          <div className="card-body">
+            {data ? (
+              <p>
+                Success! You may now head{" "}
+                <Link to="/">back to the homepage.</Link>
+              </p>
+            ) : (
+              <form onSubmit={handleFormSubmit}>
+                <input
+                  className="form-input"
+                  placeholder="Business Name"
+                  name="username"
+                  type="text"
+                  value={formState.username}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="Your email"
+                  name="email"
+                  type="email"
+                  value={formState.email}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="******"
+                  name="password"
+                  type="password"
+                  value={formState.password}
+                  onChange={handleChange}
+                />
+                <button
+                  className="btn btn-block btn-info"
+                  style={{ cursor: "pointer" }}
+                  type="submit"
+                >
+                  Submit
+                </button>
+              </form>
+            )}
+
+            {error && (
+              <div className="my-3 p-3 bg-danger text-white">
+                {error.message}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}; */}
 
 export default Signup;
 

@@ -48,12 +48,9 @@ const Login = (props) => {
     });
   };
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Login</h4>
-          <div className="card-body">
-            {data ? (
+    <div className="Login">
+      <h4>Industry Professional Login</h4>
+      {data ? (
               <p>
                 Success! You may now head{' '}
                 <Link to="/">back to the homepage.</Link>
@@ -63,7 +60,7 @@ const Login = (props) => {
             ) : (
               <form onSubmit={handleFormSubmit}>
                 <input
-                  className="form-input"
+                  className="mb-3"
                   placeholder="Your email"
                   name="email"
                   type="email"
@@ -71,7 +68,7 @@ const Login = (props) => {
                   onChange={handleChange}
                 />
                 <input
-                  className="form-input"
+                  className="mb-3"
                   placeholder="******"
                   name="password"
                   type="password"
@@ -79,11 +76,8 @@ const Login = (props) => {
                   onChange={handleChange}
                 />
                 <button
-                  className="btn btn-block btn-info"
-                  style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
-                  Submit
+                  variant="primary" type="submit" className='submitBtn testBtn'>
+                  Login
                 </button>
               </form>
             )}
@@ -92,10 +86,58 @@ const Login = (props) => {
                 {error.message}
               </div>
             )}
-          </div>
-        </div>
       </div>
-    </main>
+
+
+    // </div>
+    // <main className="flex-row justify-center mb-4">
+    //   <div className="col-12 col-lg-10">
+    //     <div className="card">
+    //       <h4 className="card-header bg-dark text-light p-2">Login</h4>
+    //       <div className="card-body">
+    //         {data ? (
+    //           <p>
+    //             Success! You may now head{' '}
+    //             <Link to="/">back to the homepage.</Link>
+    //             {' '}
+    //             <Link to="/createwine"></Link>
+    //           </p>
+    //         ) : (
+    //           <form onSubmit={handleFormSubmit}>
+    //             <input
+    //               className="mb-3"
+    //               placeholder="Your email"
+    //               name="email"
+    //               type="email"
+    //               value={formState.email}
+    //               onChange={handleChange}
+    //             />
+    //             <input
+    //               className="mb-3"
+    //               placeholder="******"
+    //               name="password"
+    //               type="password"
+    //               value={formState.password}
+    //               onChange={handleChange}
+    //             />
+    //             <button
+    //               className="btn btn-block btn-info"
+    //               style={{ cursor: 'pointer' }}
+    //               type="submit"
+    //             >
+    //               Submit
+    //             </button>
+    //           </form>
+    //         )}
+    //         {error && (
+    //           <div className="my-3 p-3 bg-danger text-white">
+    //             {error.message}
+    //           </div>
+    //         )}
+    //       </div>
+    //     </div>
+    //   </div>
+    // </main>
   );
 };
 export default Login;
