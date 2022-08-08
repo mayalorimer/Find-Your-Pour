@@ -49,7 +49,7 @@ const Signup = () => {
           {/* <Form.Control type="text" placeholder="Enter Business Name" value={username} class="formInput" onChange={e => setName(e.target.value)} /> */}
           <Form.Control className="form-input" placeholder="Enter Business Name" name="username" type="text" value={formState.username} onChange={handleChange} />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicVineyard">
+        {/* <Form.Group className="mb-3" controlId="formBasicVineyard">
           <Form.Label>Email</Form.Label>
           <Form.Control type="text" placeholder="Enter Email" value={email} onChange={e => setVineyard(e.target.value)} />
         </Form.Group>
@@ -77,7 +77,7 @@ const Signup = () => {
           <Form.Label>Tell us about the wine</Form.Label>
           <br />
           <Form.Control as="textarea" rows={3} value={blurb} onChange={e => setBlurb(e.target.value)} />
-        </Form.Group>
+        </Form.Group> */}
         <Button variant="primary" type="submit" className='submitBtn testBtn'>
           Register
         </Button>
