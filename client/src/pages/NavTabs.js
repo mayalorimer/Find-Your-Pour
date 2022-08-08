@@ -19,7 +19,6 @@ import Auth from "../utils/auth";
 import Home from './Home';
 import Login from './Login';
 import Signup from './Signup';
-import Header from './Navbar';
 import CreateWine from './CreateWine';
 import WineSearch from './WineSearch';
 
@@ -60,13 +59,14 @@ function NavTabs({ currentPage, handlePageChange }) {
                     </NavDropdown.Item> */}
                   </NavDropdown>
                 </Nav>
+                
                 <Nav>
                   {/* <Nav.Link href="#deets">More deets</Nav.Link>
                   <Nav.Link eventKey={2} href="#memes">
                     Dank memes
                   </Nav.Link> */}
                   <Nav.Link as={Link} to="/" onClick={Auth.logout}>
-            Logout
+            Logout{Auth.getUser().data.username}
           </Nav.Link>
                 </Nav>
               </Navbar.Collapse>
