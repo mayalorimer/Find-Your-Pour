@@ -79,7 +79,7 @@ const Signup = () => {
           <Form.Control as="textarea" rows={3} value={blurb} onChange={e => setBlurb(e.target.value)} />
         </Form.Group>
         <Button variant="primary" type="submit" className='submitBtn testBtn'>
-          Add Wine
+          Register
         </Button>
       </Form>
     </div>
