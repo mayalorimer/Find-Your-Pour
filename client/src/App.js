@@ -20,6 +20,7 @@ import WineSearch from './pages/WineSearch';
 //import Navi from './pages/Navbar';
 
 import PortfolioContainer from "./pages/PortfolioContainer";
+import Footer from './pages/Footer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -40,46 +41,51 @@ const authLink = setContext((_, { headers }) => {
 
 
 const client = new ApolloClient({
-    // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
-    link: authLink.concat(httpLink),
-    cache: new InMemoryCache(),
-  });
+  // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
 
 
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
-      <PortfolioContainer />
-        <>
-        <Routes>
-          <Route
-            path="/"
-            element={<Home />}
-          />
-          <Route
-            path="/login"
-            element={<Login />}
-          />
-          <Route
-            path="/signup"
-            element={<Signup />}
-          />
-          <Route
-            path="/createwine"
-            element={<CreateWine />}
-          />
-          <Route
-            path="/winesearch"
-            element={<WineSearch />}
-          />
-          <Route
-            path='*'
-            element={<h1 className="display-2">Wrong page!</h1>}
-          />
-        </Routes>
-        </>
-      </Router>
+      <div className="pageContainer">
+        <div className="content-wrap">
+          <Router>
+            <PortfolioContainer />
+            <>
+              <Routes>
+                <Route
+                  path="/"
+                  element={<Home />}
+                />
+                <Route
+                  path="/login"
+                  element={<Login />}
+                />
+                <Route
+                  path="/signup"
+                  element={<Signup />}
+                />
+                <Route
+                  path="/createwine"
+                  element={<CreateWine />}
+                />
+                <Route
+                  path="/winesearch"
+                  element={<WineSearch />}
+                />
+                <Route
+                  path='*'
+                  element={<h1 className="display-2">Wrong page!</h1>}
+                />
+              </Routes>
+            </>
+          </Router>
+        </div>
+        <Footer />
+      </div>
     </ApolloProvider>
   );
 }
