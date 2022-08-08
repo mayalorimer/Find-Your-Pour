@@ -61,14 +61,14 @@ const WineSearch = () => {
 
     return (
         <>
-            <Form onSubmit={handleFormSubmit} class="searchForm">
+            <Form onSubmit={handleFormSubmit} className="searchForm">
                 <div className="labels">
-                    <Form.Label column sm="4" className="slideLabel">
+                    <Form.Label className="slideLabel">
                         Select desired type and price range:
                     </Form.Label>
                 </div>
                 <Form.Group as={Row} className="sliderSelect">
-                    <Col xs="6">
+                    <Col>
                         <Form.Select size="lg" onChange={(e) => setType(e.target.value)} className="selectOption">
                             <option value='' defaultValue>Select Type</option>
                             <option value="red">🍷 Red</option>
@@ -86,8 +86,6 @@ const WineSearch = () => {
                             min={0}
                             max={200}
                         />
-                    </Col>
-                    <Col xs="6">
                         <Form.Label>Maximum Price:</Form.Label>
                         <br />
                         <RangeSlider
@@ -99,9 +97,9 @@ const WineSearch = () => {
                     </Col>
                 </Form.Group>
                 <div class="buttonYes">
-                    <Button type="submit" variant="success" size="lg" className="submitBtn">
+                    <button type="submit" variant="secondary" size="lg" className="submitBtn">
                         Find my Pour
-                    </Button>
+                    </button>
                 </div>
             </Form>
 

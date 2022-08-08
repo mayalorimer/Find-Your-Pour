@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+import { useNavigate } from 'react-router-dom';
 
 import { CREATE_WINE } from '../utils/mutations';
 
-import Auth from '../utils/auth';
-import { set } from 'mongoose';
 
 const CreateWine = () => {
   const [name, setName] = useState('');
@@ -20,6 +16,7 @@ const CreateWine = () => {
   const [blurb, setBlurb] = useState('');
 
   const [createWine, { error }] = useMutation(CREATE_WINE);
+  const navigate = useNavigate();
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -46,6 +43,9 @@ const CreateWine = () => {
       setPrice('')
       setType('')
       setBlurb('')
+
+      // on submit redirect to the home page
+      navigate('/');
 
 
     } catch (err) {
@@ -92,9 +92,9 @@ const CreateWine = () => {
           <br />
           <Form.Control as="textarea" rows={3} value={blurb} onChange={e => setBlurb(e.target.value)} />
         </Form.Group>
-        <Button variant="primary" type="submit" className='submitBtn testBtn'>
+        <button  type="submit" className='submitBtn testBtn'>
           Add Wine
-        </Button>
+        </button>
       </Form>
 
     </div>

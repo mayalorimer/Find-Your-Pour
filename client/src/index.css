@@ -49,6 +49,13 @@ code {
 .slideLabel {
   font-size: 30px; 
 }
+
+
+.searchForm {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
 .sliderSelect,
 .typeSelect,
 .labels {
@@ -58,20 +65,25 @@ code {
   padding: 5px; 
   background: rgba(255, 247, 247, 0.7);
   text-align: center;
+  font-family: 'Lora', serif;
+}
+
+
+.sliderSelect {
   margin-left: 20%;
   margin-right: 20%;
-  font-family: 'Lora', serif;
+  align-items: center;
 }
 
 .submitBtn {
   background-color:#800000;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 11px 28px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 18px;
   border-radius: 10px;
   border-style: solid;
   border-color: black;
@@ -95,11 +107,18 @@ code {
   border-style: solid;
   margin-left: 20%;
   margin-right: 20%;
+  margin-top: 10px;
+  padding: 5px; 
   text-align: center;
   font-size: 20px;
   border-radius: 20px;
   background: rgba(255, 241, 241, 0.7);
   font-family: 'Lora', serif;
+}
+
+.wineAddForm h4 {
+  font-size: 40px;
+  font-weight: bolder;
 }
 
 .mb-3 {
@@ -123,19 +142,25 @@ textarea {
 
 .page-container {
   position: relative;
-  height: 100%;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 .content-wrap {
-  padding-bottom: 50px;   
+  padding-bottom: 30px; 
+  min-height: 95vh;
+  overflow: auto; 
 }
 
 .footer {
-  position: fixed;
   bottom: 0;
   width: 100%;
   height: 50px; 
   background-color: #800000;    
   text-align: center; 
-  color:white;       
+  color:white;   
+}
+
+.footer p {
+  padding-top: 10px;
 }
