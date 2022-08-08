@@ -85,9 +85,6 @@ function NavTabs({ currentPage, handlePageChange }) {
         <>
           <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-            <div>
-              <img src= {winelogo} alt="find-your-pour logo wineglass and magnifying glass" height={30} width={30} />            
-              </div>
               <Navbar.Brand as={Link} to="/">Find Your Pour</Navbar.Brand>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse id="responsive-navbar-nav">
