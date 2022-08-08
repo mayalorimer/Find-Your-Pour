@@ -16,6 +16,11 @@ code {
     monospace;
 }
 
+h2 {
+  color: white;
+  padding: 5px;
+}
+
 
 /* Class */
 
@@ -29,7 +34,7 @@ code {
   flex: auto;
   text-align: center;
   max-width: 400px;
-  max-height: 360px;
+  max-height: 400px;
   background-color: antiquewhite;
 }
 
