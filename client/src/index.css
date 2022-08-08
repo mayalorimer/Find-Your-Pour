@@ -50,6 +50,14 @@ code {
   font-size: 30px; 
 }
 
+.minAndMax {
+  font-size: 20px;
+}
+
+.range {
+  width: 65%;
+}
+
 
 .searchForm {
   margin-left: 20%;

@@ -78,21 +78,23 @@ const WineSearch = () => {
                             <option value='dessert'>🍰 Dessert</option>
                         </Form.Select>
                         <br />
-                        <Form.Label>Minimum Price:</Form.Label>
+                        <Form.Label className="minAndMax">Minimum Price:</Form.Label>
                         <br />
                         <RangeSlider
                             value={minPrice}
                             onChange={(e) => setMinPrice(e.target.value)}
                             min={0}
                             max={200}
+                            className="range"
                         />
-                        <Form.Label>Maximum Price:</Form.Label>
+                        <Form.Label className="minAndMax">Maximum Price:</Form.Label>
                         <br />
                         <RangeSlider
                             value={maxPrice}
                             onChange={(e) => setMaxPrice(e.target.value)}
                             min={0}
                             max={200}
+                            className="range"
                         />
                     </Col>
                 </Form.Group>
