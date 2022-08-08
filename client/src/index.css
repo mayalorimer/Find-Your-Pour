@@ -7,7 +7,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(rgb(240, 240, 200), rgb(164, 49, 49));
   background-image: url("./pages/background1.jpg");
   background-size: cover;
 }
