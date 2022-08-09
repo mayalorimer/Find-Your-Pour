@@ -18,8 +18,12 @@ New users would first sign up with a user id and password. Once they've done so,
 
 Bcrypt, Express.js, GraphQL, Mongoose, React-Bootstrap, React-Dom, HTML, CSS, Javascript
 
-# Links
+# Screenshots 
+![screenshot](./client/src/pages/screenshot.jpg)
+![screenshot](./client/src/pages/screenshot2.jpg)
 
+# Links
+https://fierce-wildwood-04718.herokuapp.com/ 
 https://github.com/mayalorimer/Find-Your-Pour
 
 
