@@ -98,7 +98,7 @@ const WineSearch = () => {
                         />
                     </Col>
                 </Form.Group>
-                <div class="buttonYes">
+                <div>
                     <button type="submit" variant="secondary" size="lg" className="submitBtn">
                         Find my Pour
                     </button>

@@ -21,6 +21,7 @@ import Login from './Login';
 import Signup from './Signup';
 import CreateWine from './CreateWine';
 import WineSearch from './WineSearch';
+import winelogo from './FindYourPourLogo.png';
 
 const logout = (event) => {
   event.preventDefault();
@@ -35,7 +36,11 @@ function NavTabs({ currentPage, handlePageChange }) {
         <>
           <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
+              
               <Navbar.Brand as={Link} to="/">
+              <div>
+              <img src= {winelogo} alt="find-your-pour logo wineglass and magnifying glass" height={30} width={30} />            
+              </div>
               Find Your Pour
               </Navbar.Brand>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -80,6 +85,9 @@ function NavTabs({ currentPage, handlePageChange }) {
         <>
           <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
+            <div>
+              <img src= {winelogo} alt="find-your-pour logo wineglass and magnifying glass" height={30} width={30} className="wineLogo"/>            
+              </div>
               <Navbar.Brand as={Link} to="/">Find Your Pour</Navbar.Brand>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse id="responsive-navbar-nav">
